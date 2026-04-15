@@ -68,7 +68,7 @@ export default async function ResultadoPage({ params }: PageProps) {
   const supabase = getSupabaseServerClient();
   const { data } = await supabase
     .from('diagnostics')
-    .select('indice_preparacion, modulo_mas_fuerte, modulo_mas_debil')
+    .select('indice_preparacion, modulo_mas_fuerte, modulo_mas_debil, lead_id')
     .eq('id', params.id)
     .single();
 
@@ -176,7 +176,11 @@ export default async function ResultadoPage({ params }: PageProps) {
             <p className="text-xs text-slate-500 mt-2">Pago único · Acceso hasta el concurso</p>
           </div>
           <Link
-            href="/checkout"
+            href={
+              data?.lead_id
+                ? `/checkout?lead_id=${data.lead_id}&diagnostico_id=${params.id}`
+                : '/checkout'
+            }
             className="block w-full bg-yellow-400 hover:bg-yellow-300 active:scale-[0.99] text-slate-900 font-bold text-base md:text-lg py-5 rounded-2xl shadow-lg shadow-yellow-400/30 transition"
           >
             Desbloquear Pase Integral — $197.000 COP
