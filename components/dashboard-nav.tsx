@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, ClipboardCheck, BookOpen, Bot, User, type LucideIcon } from 'lucide-react';
+import { Home, ClipboardCheck, Target, Bot, User, type LucideIcon } from 'lucide-react';
 
 interface NavItem {
   href: string;
@@ -13,7 +13,7 @@ interface NavItem {
 const ITEMS: NavItem[] = [
   { href: '/dashboard', label: 'Inicio', icon: Home },
   { href: '/dashboard/diagnostico', label: 'Mi Diagnóstico', icon: ClipboardCheck },
-  { href: '/dashboard/modulos', label: 'Módulos', icon: BookOpen },
+  { href: '/dashboard/simulacion', label: 'Centro de Simulación', icon: Target },
   { href: '/dashboard/tutor', label: 'Tutor Virtual', icon: Bot },
   { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
 ];
